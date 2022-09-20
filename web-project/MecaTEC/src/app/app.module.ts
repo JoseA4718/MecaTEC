@@ -1,16 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponets } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './templates/header/header.component';
+import { FooterComponent } from './templates/footer/footer.component';
+
+import {ReactiveFormsModule, FormsModule} from '@angular/forms'
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    routingComponets
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
