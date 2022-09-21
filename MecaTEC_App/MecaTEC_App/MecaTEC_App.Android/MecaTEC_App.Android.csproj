@@ -83,7 +83,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\strings.xml" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MecaTEC_App\MecaTEC_App.csproj">
       <Project>{99361363-5F6A-476E-8FA6-9D2C15EBAA23}</Project>

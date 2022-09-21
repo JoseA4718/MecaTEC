@@ -10,6 +10,7 @@
                  IconImageSource="infoicon.png"
                  Order="Primary"
                  Priority="1"
+                 Clicked="Info_Clicked"
                  />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
@@ -33,7 +34,7 @@
                 </Grid.RowDefinitions>
                 <Entry x:Name="userEntry" Keyboard="Default" Grid.Row="0" Placeholder="Email"/>
                 <Entry x:Name="pasEntry" IsPassword="True" Keyboard="Default" Grid.Row="1" Placeholder="Password"/>
-                <Button Text="LogIn" Grid.Row="2"/>
+                <Button Text="LogIn" Grid.Row="2" Clicked="Button_Clicked"/>
                 <Button x:Name="registerbtn" Text="Register Here!" Clicked="Go_Register" Grid.Row="3"/>
 
             </Grid>

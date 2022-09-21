@@ -90,6 +90,7 @@ namespace MecaTEC_App.Views
             {
                 DisplayAlert("ERROR", "YOU MUST FILL ALL THE BLANKS TO CONTINUE", "ACCEPT");
             }*/
+            Navigation.PushAsync(new Login_Page());
         }
 
 

@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using MecaTEC_App.REST_API_LoginModel;
+using MecaTEC_App.REST_API_UserModel;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -46,7 +48,7 @@ namespace MecaTEC_App.Views
         /// </summary>
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            /*
+            
             var userValidate = userEntry.Text;
             if (!string.IsNullOrEmpty(userValidate))
             {
@@ -57,51 +59,28 @@ namespace MecaTEC_App.Views
                 string url = "http://" + ip + ":6969/login/" + email + password;
                 var result = await cliente.GetAsync(url);
                 var json = result.Content.ReadAsStringAsync().Result;
-                CookTime.REST_API_UserModel.User InputUser = new REST_API_UserModel.User();
-                InputUser = CookTime.REST_API_UserModel.User.FromJson(json);
-                if (InputUser.Name == null)
+                MecaTEC_App.REST_API_UserModel.User InputUser = new REST_API_UserModel.User();
+                InputUser = MecaTEC_App.REST_API_UserModel.User.FromJson(json);
+                if (InputUser.Email == null)
                 {
-                    await DisplayAlert("Cook Time", "The data you filled with does not match with any CookTime user. Please verify your info and try again!", "OK");
+                    await DisplayAlert("MecaTEC", "The data you filled with does not match with any CookTime user. Please verify your info and try again!", "OK");
                 }
                 else
                 {
-                    CURRENTUSER = CookTime.REST_API_UserModel.User.FromJson(json);
-                    await DisplayAlert("Cook Time", "Welcome back " + CURRENTUSER.Name, "OK");
-                    await Navigation.PushAsync(new HomePage());
+                    MecaTEC_App.REST_API_UserModel.User CURRENTUSER = MecaTEC_App.REST_API_UserModel.User.FromJson(json);
+                    await DisplayAlert("Cook Time", "Welcome back " + CURRENTUSER.FirstName, "OK");
+                    await Navigation.PushAsync(new Home_Page());
                 }
-            }*/
-
-        }
-        /// <summary>
-        /// This method simply updates the user information, everytime a change has been made to itself.
-        /// @author Jose A.
-        /// </summary>
-        public static async void updateUser()
-        {
-            /*
-            HttpClient cliente = new HttpClient();
-            string url = "http://" + ip + ":6969/login/" + CURRENTUSER.Email + "/" + CURRENTUSER.Password;
-            var result = await cliente.GetAsync(url);
-            var json = result.Content.ReadAsStringAsync().Result;
-            CookTime.REST_API_UserModel.User InputUser = new REST_API_UserModel.User();
-            InputUser = CookTime.REST_API_UserModel.User.FromJson(json);
-            if (InputUser.Name == null)
-            {
-                return;
             }
-            else
-            {
-                CURRENTUSER = CookTime.REST_API_UserModel.User.FromJson(json);
 
-            }*/
         }
         /// <summary>
         /// This method is used to change the current page to Info page
         /// @author Mauricio C.
         /// </summary>
         private void Info_Clicked(object sender, EventArgs e)
-        {/*
-            Navigation.PushAsync(new AboutPage());*/
+        {
+            Navigation.PushAsync(new Info_Page());
         }
         /// <summary>
         /// This method encrypt the password with HASH MD5 algorithm
