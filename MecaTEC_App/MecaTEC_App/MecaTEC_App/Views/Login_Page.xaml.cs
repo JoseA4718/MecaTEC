@@ -22,6 +22,7 @@ namespace MecaTEC_App.Views
     public partial class Login_Page : ContentPage
 
     {
+        public static MecaTEC_App.REST_API_UserModel.User CURRENTUSER;
         public static string ip = "192.168.0.100";
         /// <summary>
         /// This constructor execute Login Page partial class
@@ -54,9 +55,9 @@ namespace MecaTEC_App.Views
             {
 
                 string email = userEntry.Text;
-                string password = "/" + CreateMD5(pasEntry.Text);
+                string password = "_" + CreateMD5(pasEntry.Text);
                 HttpClient cliente = new HttpClient();
-                string url = "http://" + ip + ":6969/login/" + email + password;
+                string url = "http://" + "localhost" + ":7257/login/get_user/" + email + password;
                 var result = await cliente.GetAsync(url);
                 var json = result.Content.ReadAsStringAsync().Result;
                 MecaTEC_App.REST_API_UserModel.User InputUser = new REST_API_UserModel.User();
@@ -67,8 +68,8 @@ namespace MecaTEC_App.Views
                 }
                 else
                 {
-                    MecaTEC_App.REST_API_UserModel.User CURRENTUSER = MecaTEC_App.REST_API_UserModel.User.FromJson(json);
-                    await DisplayAlert("Cook Time", "Welcome back " + CURRENTUSER.FirstName, "OK");
+                    CURRENTUSER = MecaTEC_App.REST_API_UserModel.User.FromJson(json);
+                    await DisplayAlert("Cook Time", "Welcome back " + CURRENTUSER.Name, "OK");
                     await Navigation.PushAsync(new Home_Page());
                 }
             }

@@ -28,13 +28,10 @@
         [JsonProperty("password")]
         public string password { get; set; }
 
-        [JsonProperty("firstName")]
-        public string FirstName { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
 
-        [JsonProperty("lastName")]
-        public string LastName { get; set; }
-
-        [JsonProperty("ID")]
+        [JsonProperty("id")]
         public int ID { get; set; }
 
         [JsonProperty("phone")]
@@ -43,13 +40,8 @@
         [JsonProperty("info")]
         public string Info { get; set; }
 
-        [JsonProperty("zipCode")]
-        public int ZipCode { get; set; }
-
-        [JsonProperty("bills")]
-        public JArray Bills { get; set; }
-
-
+        [JsonProperty("address")]
+        public int Address { get; set; }
     }
 
     public partial class User

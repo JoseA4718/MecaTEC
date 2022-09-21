@@ -1,4 +1,4 @@
-﻿namespace MecaTEC_App.REST_API_BillModel
+﻿namespace MecaTEC_App.REST_API_AppointmentModel
 {
     using System;
     using System.Collections;
@@ -12,16 +12,16 @@
     /// Class that packs recipe objects into an array
     /// author Jose Antonio Espinoza.
     /// </summary>
-    public partial class BillModel
+    public partial class AppointmentModel
     {
         [JsonProperty("newbill")]
-        public Bill[] Bills { get; set; }
+        public Appointment[] Appointments { get; set; }
     }
     /// <summary>
     /// Class for creating a Recipe object from a json file.
     /// author Jose Antonio Espinoza.
     /// </summary>
-    public partial class Bill
+    public partial class Appointment
     {
         [JsonProperty("service")]
         public string Service { get; set; }
